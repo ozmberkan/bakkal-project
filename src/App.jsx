@@ -7,13 +7,33 @@ import { ProductData } from "./data/ProductData";
 
 const App = () => {
   const [mainData, setMainData] = useState(ProductData);
+  const [isOpen, setIsOpen] = useState(false);
+  const [basket, setBasket] = useState([]);
+  const [filtered, setFiltered] = useState("");
 
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar
+          setIsOpen={setIsOpen}
+          basket={basket}
+          setFiltered={setFiltered}
+        />
         <Routes>
-          <Route path="/" element={<Home mainData={mainData} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                mainData={mainData}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                setBasket={setBasket}
+                basket={basket}
+                filtered={filtered}
+                setFiltered={setFiltered}
+              />
+            }
+          />
         </Routes>
       </Router>
     </div>

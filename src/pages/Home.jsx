@@ -1,8 +1,17 @@
 import React from "react";
 import Slider from "react-slick";
 import ProductList from "../components/Products/ProductList/ProductList";
+import Basket from "../components/Basket/Basket";
 
-const Home = ({ mainData }) => {
+const Home = ({
+  mainData,
+  isOpen,
+  setIsOpen,
+  basket,
+  setBasket,
+  filtered,
+  setFiltered,
+}) => {
   // var settings = {
   //   dots: true,
   //   infinite: true,
@@ -23,7 +32,19 @@ const Home = ({ mainData }) => {
         Ürünler
       </h1>
       <hr className="py-2" />
-      <ProductList mainData={mainData} />
+      <ProductList
+        mainData={mainData}
+        basket={basket}
+        setBasket={setBasket}
+        filtered={filtered}
+        setfiltered={setFiltered}
+      />
+      <Basket
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        basket={basket}
+        setBasket={setBasket}
+      />
     </div>
   );
 };

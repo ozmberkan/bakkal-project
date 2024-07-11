@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaBasketShopping } from "react-icons/fa6";
 import { BiSearch, BiSolidCategory } from "react-icons/bi";
 
-const Navbar = () => {
+const Navbar = ({ setIsOpen, basket, setFiltered }) => {
   return (
     <div className="w-full h-24 px-12 bg-[#509caf] flex justify-between items-center">
       <div className="flex items-end justify-center">
@@ -18,7 +18,9 @@ const Navbar = () => {
           </label>
           <input
             type="text"
+            placeholder="Meyve & Sebze Arayınız.."
             maxLength={30}
+            onChange={(e) => setFiltered(e.target.value)}
             className="p-3 w-[400px] rounded-full text-[#303030] pl-5 pr-10 text-semibold text-base outline-none ring-white/60 ring-offset-2 ring-offset-transparent focus:outline-none focus:ring-2 transition-all duration-500"
           />
         </div>
@@ -26,8 +28,16 @@ const Navbar = () => {
         {/* <div className="p-3 hover:bg-white/30 transition-all duration-500 rounded-full hover:ring-2 hover:ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer">
           <BiSolidCategory size={25} />
         </div> */}
-        <div className="p-3 bg-white/30 hover:bg-white/10 transition-all duration-500 rounded-full ring-2 ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer">
-          <FaBasketShopping size={25} />
+        <div className="relative">
+          <span className="absolute -top-3 bg-red-500 w-6 h-6 rounded-full flex justify-center items-center -right-2">
+            {basket.length}
+          </span>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="p-3 bg-white/30 hover:bg-white/10 transition-all duration-500 rounded-full ring-2 ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer"
+          >
+            <FaBasketShopping size={25} />
+          </button>
         </div>
       </div>
     </div>
