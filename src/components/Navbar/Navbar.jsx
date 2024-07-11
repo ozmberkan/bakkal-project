@@ -8,7 +8,7 @@ const Navbar = ({ setIsOpen, basket, setFiltered }) => {
       <div className="flex items-end justify-center">
         <h1 className="text-white text-3xl font-bold">BAKKAL</h1>
         <p className="text-white/50 font-mono leading-tight tracking-tighter">
-          v0.1
+          v0.2
         </p>
       </div>
       <div className="text-white font-semibold flex gap-x-5 items-center justify-center">
