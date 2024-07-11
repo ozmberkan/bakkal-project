@@ -23,9 +23,9 @@ const Navbar = () => {
           />
         </div>
 
-        <div className="p-3 hover:bg-white/30 transition-all duration-500 rounded-full hover:ring-2 hover:ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer">
+        {/* <div className="p-3 hover:bg-white/30 transition-all duration-500 rounded-full hover:ring-2 hover:ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer">
           <BiSolidCategory size={25} />
-        </div>
+        </div> */}
         <div className="p-3 bg-white/30 hover:bg-white/10 transition-all duration-500 rounded-full ring-2 ring-white/60 ring-offset-2 ring-offset-transparent cursor-pointer">
           <FaBasketShopping size={25} />
         </div>
