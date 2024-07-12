@@ -5,6 +5,15 @@ import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import BasketDetail from "./BasketDetail";
 
 const Basket = ({ isOpen, setIsOpen, basket, setBasket }) => {
+  const basketItems = basket.reduce((acc, item) => {
+    if (acc[item.id]) {
+      acc[item.id].quantity++;
+    } else {
+      acc[item.id] = { ...item, quantity: 1 };
+    }
+    return acc;
+  }, {});
+
   const totalPrice = basket.reduce((acc, item) => acc + item.price, 0);
 
   const clearBasket = () => {
@@ -32,7 +41,7 @@ const Basket = ({ isOpen, setIsOpen, basket, setBasket }) => {
             <hr />
             {basket.length > 0 ? (
               <div className="grid grid-cols-4 gap-5 overflow-auto max-h-[450px] px-4 ">
-                {basket.map((item) => (
+                {Object.values(basketItems).map((item) => (
                   <BasketDetail key={item.id} item={item} />
                 ))}
               </div>
